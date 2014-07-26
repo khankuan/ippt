@@ -85,7 +85,7 @@ function calcPushups(ageGroup, count){
 
 function calc24km(ageGroup, minutes, seconds){
 	var base = (8*60 + 30);
-	var timing = minutes*60 + seconds - base;
+	var timing = Math.max(minutes*60 + seconds - base,0);
 	var bucket = 60-Math.ceil(timing/10);
 	return km24Map[ageGroup][bucket] || 0;
 }
