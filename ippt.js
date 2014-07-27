@@ -4,7 +4,11 @@ var store;
 
 /*	Init	*/
 function init(){
+	var loading = document.getElementById("loading");
+	loading.parentNode.removeChild(loading);
+
 	store = JSON.parse(localStorage.store || "{}");
+	
 	document.getElementById("ageSlider").value = store.age || 24;
 	document.getElementById("situpsSlider").value = store.situps || 30;
 	document.getElementById("pushupsSlider").value = store.pushups || 30;
