@@ -76,11 +76,12 @@ paper-checkbox {
 }
 
 .station-score {
-  width: 6em;
+  width: 7em;
 }
 
 .grade {
   font-size: 1.2em;
+  vertical-align: middle;
 }
 
 
