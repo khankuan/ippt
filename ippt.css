@@ -26,6 +26,10 @@ paper-slider {
   width: calc(100% - 6em);
 }
 
+paper-checkbox {
+  padding: 20px 20px 20px 0;
+}
+
 .title {
   display: inline-block;
   width: 6em;
@@ -38,9 +42,6 @@ paper-slider {
   padding: 0.8em;
 }
 
-.survey div { margin-top: 2em; }
-.survey div:first-child { margin-top: 0em; }
-
 .station { margin-top: 1em; }
 .station:first-child { margin-top: 0em; }
 
@@ -49,6 +50,11 @@ paper-slider {
 .green-slider paper-slider::shadow #sliderKnobInner,
 .green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
   background-color: #0f9d58;
+}
+
+.survey {
+  max-width: 20em;
+  margin: 0 auto;
 }
 
 .score { 
@@ -67,5 +73,5 @@ paper-slider {
 
 
 .gold { color: gold; }
-.silver { color: silver; }
+.silver { color: #7F7F7F; }
 .black { color: black; }

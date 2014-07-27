@@ -1,21 +1,24 @@
 
 /*	Store	*/
-var store = {};
+var store;
 
 /*	Init	*/
 function init(){
-	document.getElementById("ageSlider").value = 24;
-	document.getElementById("situpsSlider").value = 30;
-	document.getElementById("pushupsSlider").value = 30;
-	document.getElementById("minutes24Slider").value = 13;
-	document.getElementById("seconds24Slider").value = 40;
-	document.getElementById("nsmenCheckbox").checked = true;
+	store = JSON.parse(localStorage.store || "{}");
+	document.getElementById("ageSlider").value = store.age || 24;
+	document.getElementById("situpsSlider").value = store.situps || 30;
+	document.getElementById("pushupsSlider").value = store.pushups || 30;
+	document.getElementById("minutes24Slider").value = store.minutes24 || 13;
+	document.getElementById("seconds24Slider").value = store.seconds24 || 40;
+	document.getElementById("nsmenCheckbox").checked = store.nsmen || true;
+	document.getElementById("commandoDiverGuardsmanCheckbox").checked = store.commandoDiverGuardsman || false;
 }
  window.addEventListener('polymer-ready', init);
 
 /*	Updating	*/
 function update(key, value){
 	store[key] = value;
+	localStorage.store = JSON.stringify(store);
 	var result = recomputeScore();
 
 	document.getElementById("situps").label = "Sit Ups (" + result.situps + ")";
@@ -41,8 +44,17 @@ function update(key, value){
 	}
 }
 
-window.updateCheckbox = update;
-window.updateSlider = update;
+window.updateCheckbox = function(key, element){
+	var obj = document.getElementById(element.id);
+	if (obj)
+		update(key, obj.checked);
+}
+
+window.updateSlider = function(key, element){
+	var obj = document.getElementById(element.id);
+	if (obj)
+		update(key, obj.immediateValue);
+}
 
 
 /*	Recomputing everything	*/
