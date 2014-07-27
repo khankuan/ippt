@@ -2,6 +2,7 @@ html,body {
   margin: 0;
   background-color: white;
   font-family: 'RobotoDraft', sans-serif;
+  font-size: 0.95em;
   width: 100%;
   max-width:40em;
   margin: 0 auto;
@@ -72,7 +73,7 @@ paper-checkbox {
 .subscore{
   display: inline-block;
   vertical-align: middle;
-  width: 8em;
+  width: 6em;
 }
 
 
