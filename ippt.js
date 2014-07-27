@@ -24,7 +24,7 @@ function update(key, value){
 	document.getElementById("situps").label = "Sit Ups (" + result.situps + ")";
 	document.getElementById("pushups").label = "Push Ups (" + result.pushups + ")";
 	document.getElementById("24km").label = "2.4km (" + result.km24 + ")";
-	document.getElementById("score").label = result.total + " (" + result.grade + ")";
+	document.getElementById("score").label = result.total + " " + result.grade;
 
 	if (result.grade == "Fail"){
 		document.getElementById("score").icon = "clear";

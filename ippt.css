@@ -70,10 +70,17 @@ paper-checkbox {
   display: inline-block;
 }
 
-.subscore{
+.subscore {
   display: inline-block;
   vertical-align: middle;
+}
+
+.station-score {
   width: 6em;
+}
+
+.grade {
+  font-size: 1.2em;
 }
 
 
