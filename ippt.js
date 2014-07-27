@@ -7,6 +7,8 @@ function init(){
 	var loading = document.getElementById("loading");
 	loading.parentNode.removeChild(loading);
 
+	document.getElementById("main").style.display = "block";
+	
 	store = JSON.parse(localStorage.store || "{}");
 	
 	document.getElementById("ageSlider").value = store.age || 24;
@@ -17,7 +19,8 @@ function init(){
 	document.getElementById("nsmenCheckbox").checked = store.nsmen || true;
 	document.getElementById("commandoDiverGuardsmanCheckbox").checked = store.commandoDiverGuardsman || false;
 }
- window.addEventListener('polymer-ready', init);
+
+window.addEventListener('polymer-ready', init);
 
 /*	Updating	*/
 function update(key, value){
