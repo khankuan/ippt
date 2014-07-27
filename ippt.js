@@ -66,7 +66,7 @@ function recomputeScore(x){
 	scores.km24 = calc24km(age, store.minutes24, store.seconds24);
 	scores.total = scores.situps + scores.pushups + scores.km24;
 
-	scores.grade = calcGrade(scores.total);
+	scores.grade = calcGrade(scores);
 
 	return scores;
 }
@@ -104,16 +104,19 @@ function calc24km(ageGroup, minutes, seconds){
 
 function calcGrade(score){
 
-	if ((store.commandoDiverGuardsman && score > 85) || (!store.commandoDiverGuardsman && score > 80))
+	if (score.situps <= 0 || score.pushups <= 0 || score.km24 <= 0)
+		return "Fail";
+
+	if ((store.commandoDiverGuardsman && score.total > 85) || (!store.commandoDiverGuardsman && score.total > 80))
 		return "Gold";
 
-	if (score > 70)
+	if (score.total > 70)
 		return "Silver";
 
-	if (store.nsmen && score > 60)
+	if (store.nsmen && score.total > 60)
 		return "Incentive";
 
-	if ((store.nsmen && score > 50) || (!store.nsmen && score > 60))
+	if ((store.nsmen && score.total > 50) || (!store.nsmen && score.total > 60))
 		return "Pass";
 
 	return "Fail";
